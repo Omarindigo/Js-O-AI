@@ -10,7 +10,7 @@ async function main() {
 
   const prompt = `With ${subject}, create a joke about light bulb and that subject.`
 
-  const joke = await gptPrompt(prompt, { temperature: 0.9});
+  const joke = await gptPrompt(prompt, { temperature: 0.7});
 
   say(`"""\n${joke}\n"""`);
 

@@ -54,7 +54,7 @@ export async function gptPrompt(prompt, c = {}) {
 }
 
 export async function gpt(c = {}) {
-  const model = c.model ?? "4.0-turbo";
+  const model = c.model ?? "4.0-turbo"; //"3.5-turbo", 4.0-turbo  here is where you change the model 
 
   if (!models[model]) {
     throw new Error(`Unknown model: ${model}`);

@@ -1,64 +1,65 @@
-/**
- * This file implements a simple battle simulation between a fox and a cat
- * using JavaScript basic imperative code. The outcome of each attack is
- * described as a string.
- * After the battle simulation completes, the program prompts the gpt to write
- * a short story about the battle.
- * It then feeds this story back into gpt to summarize it.
- */
-
-import { say } from "../shared/cli.js";
-import { gptPrompt } from "../shared/openai.js";
+import { say } from "./shared/cli.js";
+import { gptPrompt } from "./shared/openai.js";
 
 async function main() {
-  const fox = { hp: 10, attack: 12, defense: 6 };
-  const cat = { hp: 10, attack: 12, defense: 6 };
+  const prologuePrompt = `
+  Write a short prologue about the rising tensions between the Alien Empire and the Galactic Federation over scarce resources, setting the stage for an epic space battle.
+  `;
+  const prologueResponse = await gptPrompt(prologuePrompt, { max_tokens: 100 });
+  say(`Prologue:\n${prologueResponse}\n`);
+
+  const alienEmpire = { hp: 180, attack: 20, defense: 100 }; 
+  const galacticFederation = { hp: 100, attack: 18, defense: 50 }; 
 
   let outline = "";
-  while (fox.hp > 0 && cat.hp > 0) {
-    outline += "The fox attacks the cat. ";
-    if (Math.random() * fox.attack > Math.random() * cat.defense) {
-      const damage = 2 + Math.floor(Math.random() * 5);
-      cat.hp -= damage;
-      outline += `The fox hits the cat doing ${damage} damage. `;
+  while (alienEmpire.hp > 0 && galacticFederation.hp > 0) {
+    let damage; 
+
+    outline += "The alien empire's fleet launches a barrage against the Galactic Federation.\n";
+    if (Math.random() * alienEmpire.attack > Math.random() * galacticFederation.defense) {
+      damage = 5 + Math.floor(Math.random() * 10); 
+      galacticFederation.hp -= damage;
+      outline += `The attack breaches the Federation's shields, causing significant damage. ${damage} damage.\n`;
     } else {
-      outline += "The fox misses the cat. ";
+      damage = 0; 
+      outline += `The Federation's shields hold strong against the attack. ${damage} damage.\n`;
     }
 
-    outline += "\n";
-
-    outline += "The cat attacks the fox. ";
-    if (Math.random() * cat.attack > Math.random() * fox.defense) {
-      const damage = 2 + Math.floor(Math.random() * 5);
-      fox.hp -= damage;
-      outline += `The cat hits the fox doing ${damage} damage. `;
+    outline += "The Galactic Federation retaliates with a counterstrike.\n";
+    if (Math.random() * galacticFederation.attack > Math.random() * alienEmpire.defense) {
+      damage = 5 + Math.floor(Math.random() * 10); 
+      alienEmpire.hp -= damage;
+      outline += `Their strike hits critical systems, dealing a heavy blow to the Alien fleet. ${damage} damage.\n`;
     } else {
-      outline += "The cat misses the fox. ";
+      damage = 0; 
+      outline += `The Alien Empire's defenses repel the Federation's counterstrike. ${damage} damage.\n`;
     }
 
-    outline += "\n";
+    outline += `Current state: Alien Empire HP: ${alienEmpire.hp}, Attack: ${alienEmpire.attack}, Defense: ${alienEmpire.defense}; ` +
+               `Galactic Federation HP: ${galacticFederation.hp}, Attack: ${galacticFederation.attack}, Defense: ${galacticFederation.defense}.\n\n`;
   }
 
-  outline += `The fox now has ${fox.hp}/10 hp. `;
-  outline += `The cat now has ${cat.hp}/10 hp. `;
+  outline += `The Alien Empire's fleet is at ${Math.max(alienEmpire.hp, 0)}/180 operational capacity.\n`;
+  outline += `The Galactic Federation's forces are at ${Math.max(galacticFederation.hp, 0)}/100 operational capacity.\n`;
 
   say(outline);
 
-  const prompt = `
-  Write a short story about a cat and a fox fighting based on the outline below. Use colorful, descriptive language. Don't use any numbers to describe damage or health amounts, use descriptive adjectives instead.
+
+  const epiloguePrompt = `
+  Write a short epilogue for the epic space battle between the Alien Empire and the Galactic Federation. Describe the aftermath and the impact on both factions, using vivid and imaginative language to bring the resolution to life. Avoid using specific numbers for damage or fleet strength, and instead use descriptive terms.
+  Battle Outline:
   ${outline}`;
+  const epilogueResponse = await gptPrompt(epiloguePrompt, { max_tokens: 100 });
 
-  const response = await gptPrompt(prompt, { max_tokens: 1000 });
+  say(`Epilogue:\n${epilogueResponse}`);
 
-  say(`${response}`);
-
-  const prompt2 = `
-  Summarize following story in four sentences.
-  ${response}
+  const summaryPrompt = `
+  Summarize the following epic space battle story in four sentences.
+  ${epilogueResponse}
   `;
-  const response2 = await gptPrompt(prompt2, { max_tokens: 500 });
+  const summaryResponse = await gptPrompt(summaryPrompt, { max_tokens: 100 });
 
-  say(`${response2}`);
+  say(summaryResponse);
 }
 
 main();
