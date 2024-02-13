@@ -62,7 +62,7 @@ async function runTarotReadingApp() {
     
     if (question) {
         const deck = createDeckWithOrientation();
-        const cards = drawCards(deck, 3); // Draw 3 cards from the shuffled deck
+        const cards = drawCards(deck, 3); 
         const cardsTextForDisplay = cards.map(c => `${c.card} (${c.orientation})`).join(", ");
         say(`Your cards are: ${cardsTextForDisplay}.`);
         
