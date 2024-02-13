@@ -56,7 +56,7 @@ async function interpretTarot(question, cardObjects) {
     }
 }
 
-async function runTarotReadingApp() {
+async function runTarotReading() {
     say("Welcome to the Tarot Reading CLI App.");
     const question = await ask("What is your question or situation for the tarot reading? ");
     
@@ -73,4 +73,4 @@ async function runTarotReadingApp() {
     }
 }
 
-runTarotReadingApp();
+runTarotReading();
