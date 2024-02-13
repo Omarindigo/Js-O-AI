@@ -1,7 +1,7 @@
 import { ask, say } from "./shared/cli.js";
 import { gptPrompt } from "./shared/openai.js";
 
-function createDeckWithOrientation() {
+function createDeck() {
     const cards = [
         // Major Arcana
         "The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor",
@@ -61,7 +61,7 @@ async function runTarotReadingApp() {
     const question = await ask("What is your question or situation for the tarot reading? ");
     
     if (question) {
-        const deck = createDeckWithOrientation();
+        const deck = createDeck();
         const cards = drawCards(deck, 3); 
         const cardsTextForDisplay = cards.map(c => `${c.card} (${c.orientation})`).join(", ");
         say(`Your cards are: ${cardsTextForDisplay}.`);
