@@ -1,7 +1,7 @@
 import { ask, say } from "./shared/cli.js";
 import { gptPrompt } from "./shared/openai.js";
 
-// Updated function to generate a random tarot card with orientation
+
 function randomCard() {
     const cards = [
         // Major Arcana
@@ -33,7 +33,7 @@ function randomCard() {
     return { card: cards[index], orientation };
 }
 
-// Adjusted to correctly format cards with their orientations
+
 async function interpretTarot(question, cardObjects) {
     const cardsFormatted = cardObjects.map(c => `${c.card} (${c.orientation})`).join(", ");
     const promptText = `Interpret these tarot cards in the context of the question: "${question}". Cards: ${cardsFormatted}.`;
@@ -50,7 +50,7 @@ async function interpretTarot(question, cardObjects) {
     }
 }
 
-// Updated to use getRandomCardWithOrientation
+
 async function runTarotReadingApp() {
     say("Welcome to the Tarot Reading CLI App.");
     const question = await ask("What is your question or situation for the tarot reading? ");
