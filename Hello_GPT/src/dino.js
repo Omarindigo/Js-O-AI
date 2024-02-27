@@ -79,7 +79,7 @@ function updateDinoState() {
 // Generate a narrative for Dino based on the current state
 async function generateNarrative(state) {
   const basePrompt =
-    `Dino the Lizard is no ordinary reptile; he possesses a unique charm and a vivid personality. Today, Dino finds himself in a ${state} mood. Craft a narrative that unfolds a day in the life of Dino the Lizard. Focus on depicting his interactions, the subtle ways he expresses his mood, and his reactions to the environment around him, without directly stating his feelings.`;
+    `Dino the Lizard is no ordinary reptile; he lives in your computer, in your Command line terminal. Today, Dino finds himself in a ${state} mood. Craft a narrative that unfolds a single day in the life of Dino the Lizard. Focus on depicting his interactions, the subtle ways he expresses his mood by users interactions and inputs, without directly stating his feelings.`;
 
   const narrative = await gptPrompt(basePrompt);
   say(narrative);
@@ -87,6 +87,7 @@ async function generateNarrative(state) {
 
 // Interact with Dino
 async function interactWithDino() {
+  say("\nThis is Dino The Lizard, the cli pet!")
   say("\nWhat would you like to do with Dino?");
   say("1: Feed Dino");
   say("2: Play with Dino");
