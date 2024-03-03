@@ -1,141 +1,122 @@
-import { say } from "./shared/cli.js";
+// Import dependencies from Deno's standard library
+import { readTextFile, writeTextFile } from 'https://deno.land/std/fs/mod.ts';
+// Import shared modules from your project
 import { gptPrompt } from "./shared/openai.js";
+import { ask, say } from "./shared/cli.js";
 
-// Simulated ASCII art for Dino in two different frames for each state
-const dinoStates = {
-  happy: [
-    `:-)`,
-    `:-D`,
-  ],
-  hungry: [
-    `:-(`,
-    `:'-(`,
-  ],
-  playful: [
-    `<(^_^)>`,
-    `<('o')>`,
-  ],
-  tired: [
-    `(-.-)Zzz`,
-    `(u.u)Zzz`,
-  ],
-  sad: [
-    `:-(`,
-    `:-|`,
-  ],
-  grumpy: [
-    `>:-(`,
-    `>:-|`,
-  ],
-  naughty: [
-    `;-)`,
-    `>:-)`,
-  ],
-  aloof: [
-    `:-|`,
-    `:-\\`,
-  ],
-};
-
-let currentState = "happy"; // Default state
-let frame = 0;
-
-// Dino's status meters
-let happiness = 100; // Max happiness
-let hunger = 0; // No hunger
-
-// Function to draw status bars
-function drawStatusBars() {
-  const happinessBar = "Happiness: [" + "♥".repeat(happiness / 10) +
-    " ".repeat(10 - happiness / 10) + "]";
-  const hungerBar = "Hunger: [" + "♦".repeat(hunger / 10) +
-    " ".repeat(10 - hunger / 10) + "]";
-
-  say(happinessBar);
-  say(hungerBar);
+// Utility function to read game data from a JSON file
+async function loadGameData(filePath) {
+    const data = await readTextFile(filePath);
+    return JSON.parse(data);
 }
 
-// Update Dino's state based on happiness and hunger levels
-function updateDinoState() {
-  if (happiness > 80 && hunger < 20) {
-    currentState = "happy";
-  } else if (hunger > 50) {
-    currentState = "hungry";
-  } else if (happiness < 20) {
-    currentState = "sad";
-  } else if (happiness > 60 && hunger < 20) {
-    currentState = "playful";
-  } else if (happiness < 50 && hunger > 70) {
-    currentState = "tired";
-  } else if (happiness < 30) {
-    currentState = "grumpy";
-  } else if (happiness > 50 && hunger > 50) {
-    currentState = "naughty";
-  } else {
-    currentState = "aloof";
-  }
+// Utility function to save player state to a JSON file
+async function savePlayerState(filePath, playerState) {
+    const data = JSON.stringify(playerState, null, 2);
+    await writeTextFile(filePath, data);
 }
 
-// Generate a narrative for Dino based on the current state
-async function generateNarrative(state) {
-  const basePrompt =
-    `Dino the Lizard is no ordinary reptile; he lives in your computer, in your Command line terminal. Today, Dino finds himself in a ${state} mood. Craft a narrative that unfolds a single day in the life of Dino the Lizard. Focus on depicting his interactions, the subtle ways he expresses his mood by users interactions and inputs, without directly stating his feelings.`;
-
-  const narrative = await gptPrompt(basePrompt);
-  say(narrative);
-}
-
-// Interact with Dino
-async function interactWithDino() {
-  say("\nThis is Dino The Lizard, the cli pet!")
-  say("\nWhat would you like to do with Dino?");
-  say("1: Feed Dino");
-  say("2: Play with Dino");
-  say("3: Let Dino rest");
-  say("Enter the number of your choice:");
-
-  const input = await prompt("> "); // Capture user input from terminal
-
-  switch (input) {
-    case "1":
-      // Feeding reduces hunger and increases happiness
-      hunger = Math.max(0, hunger - 30);
-      happiness = Math.min(100, happiness + 20);
-      say("You feed Dino. He looks satisfied!");
-      break;
-    case "2":
-      // Playing increases happiness but also increases hunger
-      happiness = Math.min(100, happiness + 30);
-      hunger = Math.min(100, hunger + 20);
-      say("You play with Dino. He's having a lot of fun!");
-      break;
-    case "3":
-      // Resting decreases hunger slowly and stabilizes happiness
-      hunger = Math.max(0, hunger - 10);
-      say("Dino takes a rest. He looks more relaxed.");
-      break;
-    default:
-      say("Dino doesn't understand what you want. Try again.");
-      break;
-  }
-
-  updateDinoState(); // Update Dino's state after interaction
-  await generateNarrative(currentState); // Generate a narrative about Dino's day based on the current state
-}
-
-// Main loop to simulate Dino's life
+// Main game function
 async function main() {
-  while (true) {
-    await interactWithDino(); // Allow user to interact with Dino
+    // Define file paths for game data and player state
+    const gameDataPath = './gameData.json';
+    const playerStatePath = './playerState.json';
 
-    say(dinoStates[currentState][frame]);
-    drawStatusBars();
+    // Load game data and initialize player from template or saved state
+    const { storyCircle, playerTemplate } = await loadGameData(gameDataPath);
+    let player;
+    try {
+        // Attempt to load existing player state
+        player = await loadGameData(playerStatePath);
+        say(`Welcome back, ${player.name}!`);
+    } catch {
+        // Fallback to creating a new player from template
+        player = { ...playerTemplate, name: await ask("What is your name?"), class: await ask("What is your class?") };
+        say("Hello, new Player!");
+    }
 
-    frame = (frame + 1) % 2; // Toggle between frame 0 and 1 for animation
+    let context = [];
+    let playing = true;
+    const location = "woods";
 
-    // Wait for a bit before next interaction
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-  }
+    say(`Ready to continue your adventure in the ${location}?`);
+    say(`Stage 1: There once was a ${player.class} named ${player.name}...`);
+
+    while (playing) {
+        const command = await ask("What do you want to do?");
+        if (command === "quit") {
+            playing = false;
+            break;
+        }
+        const prompt = generatePrompt(player, location, context, command, storyCircle[player.stage]);
+        const response = await gptPrompt(prompt, {
+            max_tokens: 128,
+            temperature: 0.5,
+        });
+        context.push(response);
+        say(`\nStage ${player.stage + 1}: ${response}\n`);
+
+        // Update player's health, energy, and stage based on the response
+        updatePlayerStateFromResponse(player, response, storyCircle);
+
+        say(`Health: ${generateStatusBar(player.health, 100, 20)}`);
+        say(`Energy: ${generateStatusBar(player.energy, 100, 20)}`);
+
+        // Save player state after each command
+        await savePlayerState(playerStatePath, player);
+    }
+
+    say("Game over. Thanks for playing!");
 }
 
-main();
+// Function to generate the GPT-3 prompt
+function generatePrompt(player, location, context, command, stage) {
+    return `
+        This is a text adventure game.
+        The player is a ${player.class} named ${player.name}.
+        The player's health is ${player.health} and energy is ${player.energy}.
+        The player is currently in "${location}".
+        
+        The current stage of the story is: ${stage}
+        The player command is '${command}'.
+        Recently: ${context.slice(-3).join(" ")}
+        Based on the current stage of the story, generate the next part of the narrative. 
+        Respond in second person.
+        Be brief, and avoid narrating actions not taken by the player via commands.
+        When describing locations, mention places the player might go.
+        Introduce challenges that might decrease the player's health or energy.
+        Also, provide opportunities for the player to regain health and energy.
+    `;
+}
+
+// Function to update player's health, energy, and stage based on GPT-3's response
+function updatePlayerStateFromResponse(player, response, storyCircle) {
+    if (response.includes('hurt')) {
+        player.health = Math.max(0, player.health - 10);
+    }
+    if (response.includes('rest')) {
+        player.energy = Math.min(100, player.energy + 10);
+    }
+    if (response.includes('heal')) {
+        player.health = Math.min(100, player.health + 10);
+    }
+    if (response.includes('tired')) {
+        player.energy = Math.max(0, player.energy - 10);
+    }
+    if (response.includes('completed')) {
+        player.stage = (player.stage + 1) % storyCircle.length;
+    }
+}
+
+// Function to generate a status bar for health and energy
+function generateStatusBar(value, maxValue, length) {
+    const percentage = value / maxValue;
+    const filledLength = Math.round(percentage * length);
+    const emptyLength = length - filledLength;
+    const filledPart = '█'.repeat(filledLength);
+    const emptyPart = '-'.repeat(emptyLength);
+    return `[${filledPart}${emptyPart}] ${value}/${maxValue}`;
+}
+
+// Execute the main function
+main().catch(console.error);

@@ -1,0 +1,41 @@
+{
+  "levels": [
+    {
+      "level": 1,
+      "prompt": "You awaken in a dark forest. There's a path to the north, a river to the east, and a cave to the west. What do you do?",
+      "responses": {
+        "north": "You head north and find yourself in a clearing with a lone tower.",
+        "east": "You head east and find a rickety old bridge crossing the river.",
+        "west": "You head west and enter a dimly lit cave."
+      }
+    },
+    {
+      "level": 2,
+      "prompt": "In the tower, you find an ancient map. Do you take it, leave it, or explore the tower further?",
+      "responses": {
+        "take": "You take the map and notice it shows a hidden path in the forest.",
+        "leave": "You leave the map and exit the tower, feeling a strange sense of relief.",
+        "explore": "You explore the tower further and find a hidden staircase leading up."
+      }
+    },
+    {
+      "level": 3,
+      "prompt": "At the bridge, you see a troll guarding the way. Do you try to fight, negotiate, or retreat?",
+      "responses": {
+        "fight": "You decide to fight the troll, drawing your sword.",
+        "negotiate": "You attempt to negotiate with the troll, hoping to pass peacefully.",
+        "retreat": "You decide to retreat, looking for another way to cross the river."
+      }
+    },
+    {
+      "level": 4,
+      "prompt": "Inside the cave, you see a faint light in the distance. Do you approach, investigate, or leave?",
+      "responses": {
+        "approach": "You approach the light and find a hidden treasure chest.",
+        "investigate": "You investigate the cave further and find a hidden door.",
+        "leave": "You decide to leave the cave, feeling a strange sense of unease."
+      }
+    }
+  ]
+}
+
