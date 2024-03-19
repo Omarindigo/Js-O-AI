@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "Deep Cold Waters",
+    "objectives": "Investigate the signal's origins in the deep cold waters.",
+    "challenges": "In this hostile environment, the player must avoid detection by the swarms of entities. They must counter and use abilities to avoid or defend themselves.",
+    "enemies": [
+      {
+        "name": "Cyber Marine Swarm",
+        "description": "Shoaling and schooling of cyber marine life that act like an underwater swarm, attacking anything foreign."
+      },
+      {
+        "name": "Robotic Cephalopod",
+        "description": "An intelligent and aggressive robotic cephalopod that releases slick oils to trap people, then engulfs and encases them with their tentacles to create a vacuum to ignite the organism ablaze, electrocute them, or poison them."
+      }
+    ],
+    "rewards": [
+      {
+        "name": "Quantum Electromagnetic Emitter",
+        "description": "A quantum communication and quantum sensing add-on. They are installed to amplify the electromagnetic environment to increase their emission rate."
+      },
+      {
+        "name": "Signal Artifact",
+        "description": "The artifact that was emitting the signal, which turned out to be a cyberdeck of sorts."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Decoding the Signal",
+    "objectives": "Player has obtained the device that was sending out and emitting the signal. They must now decode the signal.",
+    "challenges": "Players must connect to the device and undo and hack any protection that is not allowing them to access the Artifact.",
+    "enemies": [
+      {
+        "name": "Intelligent Autonomous Firewall",
+        "description": "An iron-clad firewall that prevents any hacking or driver mounting of the artifact. It exists in the latent space, which acts like an in-between space."
+      }
+    ],
+    "rewards": [
+      {
+        "name": "Artifact Knowledge",
+        "description": "Access to the knowledge contained within the Artifact."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Infiltrating the Metropolis",
+    "objectives": "Enter the stronghold metropolis and navigate its treacherous layers to gather information and resources.",
+    "challenges": "The player must blend in with the various biomorphs and avoid drawing attention to themselves. They need to gather information and access restricted areas without being detected.",
+    "enemies": [
+      {
+        "name": "Latent Sentinels",
+        "description": "Holographic security entities that patrol the latent space, seeking out intruders and anomalies."
+      },
+      {
+        "name": "Corrupted Cyborgs",
+        "description": "Once-human cyborgs who have been hijacked by the city's hidden layer, now serving as its enforcers."
+      }
+    ],
+    "rewards": [
+      {
+        "name": "Metropolis Map",
+        "description": "A detailed map of the metropolis, revealing key locations and hidden passages."
+      },
+      {
+        "name": "Biomorph Disguise",
+        "description": "A modular disguise that allows the player to mimic different biomorphs and blend in seamlessly."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "The Device",
+    "objectives": "Analyze the recovered device and extract the vital information it contains.",
+    "challenges": "The player must navigate through the device's security measures, including encryption, traps, and defensive mechanisms. They need to retrieve the data while ensuring its integrity.",
+    "enemies": [
+      {
+        "name": "Device Guardians",
+        "description": "Advanced security protocols and AI defenders built into the device to protect its secrets."
+      },
+      {
+        "name": "Data Corruptors",
+        "description": "Malicious software entities that seek to corrupt and destroy the device's data."
+      }
+    ],
+    "rewards": [
+      {
+        "name": "Atmospheric Regeneration Plans",
+        "description": "Detailed schematics and instructions for rebuilding Earth's atmosphere."
+      },
+      {
+        "name": "Device Upgrade",
+        "description": "An enhancement for the player's own devices, granting improved hacking and data manipulation capabilities."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Confronting the Opposition",
+    "objectives": "Face the groups who seek to destroy the atmospheric regeneration knowledge and uncover their motives.",
+    "challenges": "The player must navigate complex political alliances and engage in strategic negotiations or combat with opposing factions. They need to gather evidence and expose the corruption.",
+    "enemies": [
+      {
+        "name": "Faction Agents",
+        "description": "Skilled operatives from various factions who aim to eliminate the player and seize the knowledge for themselves."
+      },
+      {
+        "name": "Swarm Infestations",
+        "description": "Outbreaks of hostile swarms that have been unleashed by the opposing groups to hinder the player's progress."
+      }
+    ],
+    "rewards": [
+      {
+        "name": "Faction Dossiers",
+        "description": "Detailed information on the opposing factions, their leaders, and their weaknesses."
+      },
+      {
+        "name": "Advanced Weaponry",
+        "description": "Cutting-edge weapons and defensive systems that give the player an edge in combat."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Race Against Time",
+    "objectives": "Implement the atmospheric regeneration plans before the exodus from Earth reaches a critical point.",
+    "challenges": "The player must navigate through the chaos of the accelerating exodus, overcoming obstacles and sabotage attempts. They need to gather resources and allies to execute the plan.",
+    "enemies": [
+      {
+        "name": "Exodus Extremists",
+        "description": "Radical factions who believe in abandoning Earth and will stop at nothing to prevent the player from succeeding."
+      },
+      {
+        "name": "Saboteur Droids",
+        "description": "Reprogrammed droid bots that have been tasked with disrupting the atmospheric regeneration efforts."
+      }
+    ],
+    "rewards": [
+      {
+        "name": "Regeneration Catalyst",
+        "description": "A crucial component needed to initiate the atmospheric regeneration process."
+      },
+      {
+        "name": "Exodus Schematic",
+        "description": "Detailed plans for a spacecraft capable of interstellar travel, providing a backup plan if Earth cannot be saved."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "The Final Stand",
+    "objectives": "Defend the atmospheric regeneration apparatus from the final onslaught of hostile forces.",
+    "challenges": "The player must strategically position defenses, recruit allies, and engage in intense combat to protect the regeneration process. They need to adapt to evolving enemy tactics.",
+    "enemies": [
+      {
+        "name": "Elite Faction Forces",
+        "description": "The most powerful and well-equipped forces from the opposing factions, determined to destroy the regeneration apparatus."
+      },
+      {
+        "name": "Swarm Behemoth",
+        "description": "A massive, amalgamated swarm creature that poses an immense threat to the player and their allies."
+      }
+    ],
+    "rewards": [
+      {
+        "name": "Earth's Savior",
+        "description": "A prestigious title and recognition for the player's crucial role in saving Earth and its inhabitants."
+      },
+      {
+        "name": "Regeneration Masterkey",
+        "description": "A powerful artifact that grants the player control over the atmospheric regeneration process and its maintenance."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Echoes of a New Dawn",
+    "objectives": "With Earth's atmosphere regenerating, the player must navigate the aftermath and shape the future of the planet.",
+    "challenges": "The player must make critical decisions that impact the rebuilding of society, balance competing interests, and address the lingering threats. They need to inspire hope and unity among the survivors.",
+    "enemies": [
+      {
+        "name": "Remnant Factions",
+        "description": "Stubborn remnants of the opposing factions who refuse to accept the new reality and seek to undermine the player's efforts."
+      },
+      {
+        "name": "Corrupted Biomorphs",
+        "description": "Biomorphs who have been tainted by the residual corruption and pose a danger to the fragile peace."
+      }
+    ],
+    "rewards": [
+      {
+        "name": "Legacy of the Founder",
+        "description": "The player's actions and decisions are etched into history, shaping the future course of Earth and its inhabitants."
+      },
+      {
+        "name": "Interstellar Beacon",
+        "description": "A powerful communication device that allows the player to establish contact with other survivors across the stars."
+      }
+    ]
+  }
+]

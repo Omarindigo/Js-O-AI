@@ -1,0 +1,9 @@
+{
+  "name": " ",
+  "class": " ",
+  "health": 100,
+  "energy": 100,
+  "location": "startingPoint",
+  "inventory": [],
+  "completedQuests": []
+}

@@ -1,0 +1,180 @@
+{
+    "gameWorld": {
+      "name": "Latent Space: A Quest for Q-Data",
+      "description": "A post-cyberpunk text adventure game set in a far future where Earth is a tundra due to nuclear waste. The player must navigate the quest for the Ancient Data Artifact, an archive of wisdom holding the key to salvation.",
+      "acts": [
+        {
+          "name": "Act 1: The Signal",
+          "description": "The protagonist discovers a mysterious signal and begins the quest for the Ancient Data Artifact.",
+          "levels": [
+            {
+              "name": "Level 1: The Xeno-Scrambler's Lab",
+              "description": "The protagonist is in their lab, decoding signals and generative media when they intercept a mysterious signal.",
+              "objectives": [
+                "Investigate the signal's origin",
+                "Gather information about the Ancient Data Artifact"
+              ],
+              "challenges": [
+                "Decoding the complex signal",
+                "Navigating through the lab's security systems"
+              ],
+              "enemies": [],
+              "rewards": [
+                "Signal Decoder",
+                "Artifact Lore"
+              ]
+            },
+            {
+              "name": "Level 2: The Frozen Wasteland",
+              "description": "The protagonist ventures into the tundra, following the signal's trail.",
+              "objectives": [
+                "Survive the harsh environment",
+                "Locate the signal's source"
+              ],
+              "challenges": [
+                "Traversing the icy terrain",
+                "Fending off mutated creatures"
+              ],
+              "enemies": [
+                "Ice Stalkers",
+                "Frost Drones"
+              ],
+              "rewards": [
+                "Thermal Suit",
+                "Signal Booster"
+              ]
+            },
+            {
+              "name": "Level 3: The Abandoned Outpost",
+              "description": "The protagonist discovers an abandoned outpost that may hold clues to the artifact's location.",
+              "objectives": [
+                "Search the outpost for information",
+                "Repair the outpost's communication system"
+              ],
+              "challenges": [
+                "Navigating through the outpost's maze-like structure",
+                "Hacking into the outpost's computer network"
+              ],
+              "enemies": [
+                "Rogue AI",
+                "Sentry Bots"
+              ],
+              "rewards": [
+                "Artifact Map Fragment",
+                "Communication Logs"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Act 2: The Pursuit",
+          "description": "The protagonist faces challenges and obstacles in pursuit of the Ancient Data Artifact.",
+          "levels": [
+            {
+              "name": "Level 4: The Preservationist Stronghold",
+              "description": "The protagonist infiltrates the Preservationist stronghold to gather more information about the artifact.",
+              "objectives": [
+                "Infiltrate the stronghold undetected",
+                "Retrieve artifact research data"
+              ],
+              "challenges": [
+                "Bypassing the stronghold's security measures",
+                "Engaging in stealth combat"
+              ],
+              "enemies": [
+                "Preservationist Guards",
+                "Surveillance Drones"
+              ],
+              "rewards": [
+                "Artifact Research Files",
+                "Stealth Suit"
+              ]
+            },
+            {
+              "name": "Level 5: The Enlightened Sanctuary",
+              "description": "The protagonist seeks the help of the Enlightened faction to decipher the artifact's location.",
+              "objectives": [
+                "Gain the trust of the Enlightened leaders",
+                "Decipher the artifact map fragments"
+              ],
+              "challenges": [
+                "Completing the Enlightened's trials",
+                "Solving complex puzzles"
+              ],
+              "enemies": [],
+              "rewards": [
+                "Decoded Artifact Map",
+                "Enlightened Ally"
+              ]
+            },
+            {
+              "name": "Level 6: The Sunken Ruins",
+              "description": "The protagonist explores the sunken ruins of an ancient city to find the artifact's hidden chamber.",
+              "objectives": [
+                "Navigate through the underwater labyrinth",
+                "Locate the hidden chamber"
+              ],
+              "challenges": [
+                "Surviving the toxic waters",
+                "Solving ancient riddles"
+              ],
+              "enemies": [
+                "Mutated Sea Creatures",
+                "Ancient Guardian Constructs"
+              ],
+              "rewards": [
+                "Artifact Key",
+                "Ancient Relic"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Act 3: The Revelation",
+          "description": "The protagonist confronts a moral dilemma upon finding the Ancient Data Artifact and makes a decision that changes the world.",
+          "levels": [
+            {
+              "name": "Level 7: The Artifact Chamber",
+              "description": "The protagonist reaches the artifact chamber and discovers the truth behind the artifact's memories and information.",
+              "objectives": [
+                "Access the artifact's data",
+                "Confront the moral dilemma"
+              ],
+              "challenges": [
+                "Decrypting the artifact's security measures",
+                "Resisting the temptation of power"
+              ],
+              "enemies": [
+                "Inner Demons",
+                "Manifestations of Fear"
+              ],
+              "rewards": [
+                "Artifact Knowledge",
+                "Moral Resolution"
+              ]
+            },
+            {
+              "name": "Level 8: The Latent Space",
+              "description": "The protagonist decides to stream the artifact's data, uploading it to the latent space and forever changing the world.",
+              "objectives": [
+                "Initiate the data stream",
+                "Defend the upload process"
+              ],
+              "challenges": [
+                "Overcoming the artifact's failsafe mechanisms",
+                "Fending off the Preservationists' final assault"
+              ],
+              "enemies": [
+                "Preservationist Elite Forces",
+                "Corrupted Data Entities"
+              ],
+              "rewards": [
+                "World-Changing Impact",
+                "Legacy of Truth"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }

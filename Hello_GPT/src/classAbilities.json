@@ -1,0 +1,122 @@
+{
+    "Latent": {
+      "regularAbilities": [
+        {
+          "name": "Digital Manipulation",
+          "description": "Ability to interact with and manipulate digital environments remotely."
+        },
+        {
+          "name": "Technological Communication",
+          "description": "Communicate directly with other digital beings and systems."
+        }
+      ],
+      "specialAbilities": [
+        {
+          "name": "Phantom Override",
+          "description": "Take control of any digital system momentarily, at the cost of health and energy.",
+          "cost": {
+            "health": 10,
+            "energy": 20
+          }
+        },
+        {
+          "name": "Quantum Presence",
+          "description": "Project presence in multiple digital locations simultaneously, costing health and energy.",
+          "cost": {
+            "health": 15,
+            "energy": 25
+          }
+        }
+      ]
+    },
+    "Droids": {
+      "regularAbilities": [
+        {
+          "name": "Adaptive Configuration",
+          "description": "Automatically reconfigure to adapt to various environments."
+        },
+        {
+          "name": "Efficiency Optimization",
+          "description": "Optimize task execution for high efficiency."
+        }
+      ],
+      "specialAbilities": [
+        {
+          "name": "Organic Fusion",
+          "description": "Merge with organic systems temporarily for enhanced functionalities, at a health and energy cost.",
+          "cost": {
+            "health": 20,
+            "energy": 30
+          }
+        },
+        {
+          "name": "Swarm Coordination",
+          "description": "Coordinate with a swarm for collective action, consuming health and energy.",
+          "cost": {
+            "health": 25,
+            "energy": 35
+          }
+        }
+      ]
+    },
+    "Cyborgs": {
+      "regularAbilities": [
+        {
+          "name": "Enhanced Sensory Perception",
+          "description": "Use integrated technology to enhance sensory capabilities."
+        },
+        {
+          "name": "AI Assisted Decision-Making",
+          "description": "Leverage AI for improved decision-making and tactical analysis."
+        }
+      ],
+      "specialAbilities": [
+        {
+          "name": "Exo-Strength Surge",
+          "description": "Activate a temporary surge in physical strength, at a cost to health and energy.",
+          "cost": {
+            "health": 15,
+            "energy": 25
+          }
+        },
+        {
+          "name": "Nano-Repair",
+          "description": "Initiate rapid self-repair using nanotechnology, depleting health and energy.",
+          "cost": {
+            "health": 20,
+            "energy": 40
+          }
+        }
+      ]
+    },
+    "Mutates": {
+      "regularAbilities": [
+        {
+          "name": "Genetic Adaptation",
+          "description": "Adapt genetic makeup in real-time for environmental resilience."
+        },
+        {
+          "name": "Alien Physiology",
+          "description": "Utilize alien or animalistic features for specialized abilities."
+        }
+      ],
+      "specialAbilities": [
+        {
+          "name": "Morphological Shift",
+          "description": "Dramatically alter physical form for strategic advantage, expending health and energy.",
+          "cost": {
+            "health": 20,
+            "energy": 30
+          }
+        },
+        {
+          "name": "Bioluminescent Lure",
+          "description": "Create a distracting bioluminescent display that costs health and energy to execute.",
+          "cost": {
+            "health": 10,
+            "energy": 20
+          }
+        }
+      ]
+    }
+  }

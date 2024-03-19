@@ -1,0 +1,45 @@
+{
+  "name": "omar",
+  "class": "Droids",
+  "abilities": {
+    "regularAbilities": [
+      {
+        "name": "Adaptive Configuration",
+        "description": "Automatically reconfigure to adapt to various environments."
+      },
+      {
+        "name": "Efficiency Optimization",
+        "description": "Optimize task execution for high efficiency."
+      }
+    ],
+    "specialAbilities": [
+      {
+        "name": "Organic Fusion",
+        "description": "Merge with organic systems temporarily for enhanced functionalities, at a health and energy cost.",
+        "cost": {
+          "health": 20,
+          "energy": 30
+        }
+      },
+      {
+        "name": "Swarm Coordination",
+        "description": "Coordinate with a swarm for collective action, consuming health and energy.",
+        "cost": {
+          "health": 25,
+          "energy": 35
+        }
+      }
+    ]
+  },
+  "health": 100,
+  "energy": 100,
+  "location": " ",
+  "inventory": [],
+  "completedQuests": [],
+  "act": 1,
+  "level": 1,
+  "classDescription": "Broad spectrum of androids and intelligent machines, ranging from humanoid robots to labor droids and decentralized swarms, with the capacity to integrate organic matter.",
+  "maxHealth": 100,
+  "maxEnergy": 100,
+  "storyProgress": 0
+}

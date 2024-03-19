@@ -3,6 +3,7 @@ import ora from "npm:ora@7";
 import chalk from "npm:chalk@5";
 import OpenAI from "npm:openai@4";
 
+
 import { load } from "https://deno.land/std@0.207.0/dotenv/mod.ts";
 const __dirname = new URL(".", import.meta.url).pathname;
 const env = await load({ envPath: `./src/.env` });
@@ -34,7 +35,7 @@ const models = {
 const defaults = {
   frequency_penalty: 0,
   logit_bias: {},
-  max_tokens: 128,
+  max_tokens: 1128,
   n: 1,
   presence_penalty: 0,
   response_format: { type: "text" },
